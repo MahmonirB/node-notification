@@ -1,4 +1,6 @@
 const Pusher = require("pusher");
+const dotenv = require('dotenv');
+dotenv.config();
 
 const pusher = new Pusher({
   appId: process.env.PUSHER_APP_ID,
