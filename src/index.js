@@ -1,11 +1,10 @@
 const Pusher = require("pusher");
-const dotenv = require('dotenv');
-dotenv.config();
+const { APPID, KEY, SECRET } = require("../config/index");
 
 const pusher = new Pusher({
-  appId: process.env.PUSHER_APP_ID,
-  key: process.env.PUSHER_KEY,
-  secret: process.env.PUSHER_SECRET,
+  appId: APPID,
+  key: KEY,
+  secret: SECRET,
   cluster: "eu",
   useTLS: true
 });
