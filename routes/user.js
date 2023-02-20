@@ -3,7 +3,7 @@ const router = express.Router();
 const config = require("../config");
 
 router.get("/user", (req, res) => {
-  res.send({
+  res.status(200).send({
     user: {
       email: req.body.email,
     },
