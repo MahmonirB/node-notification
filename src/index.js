@@ -1,15 +1,35 @@
-const express = require('express');
-const config = require('../config');
+const express = require("express");
+const cors = require("cors");
+const config = require("../config");
 
 // configure Express app and install the JSON middleware for parsing JSON bodies
 const app = express();
 app.use(express.json());
 
+app.use(function (req, res, next) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  res.setHeader("Access-Control-Allow-Credentials", true);
+  next();
+});
+
+// configure CORS
+// app.use(
+//   cors({
+//     origin: true,
+//     credentials: true,
+//   })
+// );
+app.use(cors());
+
 // use routes
-app.use('/user', require('./routes/user'));
-app.use('/pusher', require('./routes/pusher'));
-app.use('/login', require('./routes/login'));
-app.use('/oauth-callback', require('./routes/oauth-callback'));
+app.use("/user", require("../routes/user"));
+app.use("/pusher", require("../routes/pusher"));
+app.use("/login", require("../routes/login"));
+app.use("/oauth-callback", require("../routes/oauth-callback"));
 
 // start server
-app.listen(config.SERVER_PORT, () => console.log(`FusionAuth example app listening on port ${config.SERVER_PORT}.`));
+app.listen(config.SERVER_PORT, () =>
+  console.log(`Anime app listening on port ${config.SERVER_PORT}.`)
+);
