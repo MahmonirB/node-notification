@@ -1,12 +1,12 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const config = require('../../config');
+const config = require("../config");
 
-router.get('/', (req, res) => {
+router.get("/user", (req, res) => {
   res.send({
     user: {
-      email: req.body.email
-    }
+      email: req.body.email,
+    },
   });
 });
 

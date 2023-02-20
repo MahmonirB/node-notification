@@ -3,9 +3,11 @@
     "start": "node src/index.js"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "pusher": "^5.1.2"
+    "pusher": "^5.1.2",
+    "request": "^2.88.2"
   },
   "name": "node-notification",
   "version": "1.0.0",
