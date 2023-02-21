@@ -11,7 +11,7 @@ const pusher = new Pusher({
   useTLS: true,
 });
 
-router.get("/pusher", (req, res) => {
+router.get("/", (req, res) => {
   pusher.trigger("my-channel", "my-event", {
     title: "Alert",
     message: "Success show notification in your device.",
