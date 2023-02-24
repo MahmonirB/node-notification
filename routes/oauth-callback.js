@@ -23,7 +23,7 @@ router.get("/", (req, res) => {
       req.session.token = JSON.parse(body).access_token;
 
       // redirect to the React app
-      res.redirect(`http://localhost:${config.CLIENT_PORT}`);
+      res.redirect(`http://localhost:${config.SERVER_PORT}/user/callback`);
     }
   );
 });
