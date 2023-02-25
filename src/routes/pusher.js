@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Pusher = require("pusher");
-const { APPID, KEY, SECRET } = require("../config");
+const { APPID, KEY, SECRET } = require("../../config");
 
 const pusher = new Pusher({
   appId: APPID,
