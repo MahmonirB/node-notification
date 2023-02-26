@@ -4,10 +4,10 @@ const session = require("express-session");
 const config = require("../config");
 var path = require ('path');
 
-const userRouter = require("./routes/user");
-const loginRouter = require("./routes/login");
+const userRouter = require("./routes/github_oauth/user");
+const loginRouter = require("./routes/anilist_oauth/login");
 const pusherRouter = require("./routes/pusher");
-const oAuthCallbackRouter = require("./routes/oauth-callback");
+const oAuthCallbackRouter = require("./routes/anilist_oauth/oauth-callback");
 
 // configure Express app and install the JSON middleware for parsing JSON bodies
 const app = express();

@@ -3,7 +3,7 @@ const session = require("express-session");
 const queryString = require("querystring");
 const router = express.Router();
 const request = require("request");
-const config = require("../../config");
+const config = require("../../../config");
 
 router.get("/callback", (req, res) => {
   if (req.query.code) {
