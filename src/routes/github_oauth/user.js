@@ -17,7 +17,7 @@ router.get("/callback", (req, res) => {
         const data = queryString.parse(body);
         const sessionObj = req.session;
         session.access_token = data.access_token;
-        res.redirect("http://localhost:5173");
+        res.redirect(`http://localhost:${config.CLIENT_PORT}`);
       }
     );
   }
