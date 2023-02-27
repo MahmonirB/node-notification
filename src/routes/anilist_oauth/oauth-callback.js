@@ -1,4 +1,5 @@
 const express = require("express");
+const session = require("express-session");
 const router = express.Router();
 const request = require("request");
 const config = require("../../../config");
@@ -24,12 +25,12 @@ router.get("/", (req, res) => {
 
     (error, response, body) => {
       if (!error && response.statusCode == 200) {
-        res.render("anilist_success", { access_token: body.access_token });
+        // res.render("anilist_success", { access_token: body.access_token });
         // save token to session
-        // req.session.token = JSON.parse(body).access_token;
+        session.access_token = body.access_token;
 
         // redirect to the React app
-        // res.redirect(`http://localhost:${config.SERVER_PORT}/user/callback`);
+        res.redirect(`http://localhost:${config.CLIENT_PORT}`);
       }
     }
   );

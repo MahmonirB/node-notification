@@ -23,8 +23,8 @@ router.get("/callback", (req, res) => {
   }
 });
 
-router.get("/success", function (req, res) {
-  const access_token = session.access_token;
+router.get("/info", function (req, res) {
+  const access_token = req.body.access_token;
 
   if (access_token) {
     request(
@@ -38,7 +38,7 @@ router.get("/success", function (req, res) {
       },
       (error, response, body) => {
         const userData = JSON.parse(body);
-        return res.status(200).json({ userData, access_token });
+        return res.status(200).json({ userData });
       }
     );
   }

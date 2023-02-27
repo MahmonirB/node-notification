@@ -8,6 +8,7 @@ const userRouter = require("./routes/github_oauth/user");
 const loginRouter = require("./routes/anilist_oauth/login");
 const pusherRouter = require("./routes/pusher");
 const oAuthCallbackRouter = require("./routes/anilist_oauth/oauth-callback");
+const successRouter = require("./routes/result_oauth/success");
 
 // configure Express app and install the JSON middleware for parsing JSON bodies
 const app = express();
@@ -44,6 +45,7 @@ app.use("/user", userRouter);
 app.use("/pusher", pusherRouter);
 app.use("/login", loginRouter);
 app.use("/oauth-callback", oAuthCallbackRouter);
+app.use("/success", successRouter);
 
 // start server
 app.listen(config.SERVER_PORT, () =>
