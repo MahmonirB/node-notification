@@ -15,27 +15,30 @@ router.get("/callback", (req, res) => {
       },
       (error, response, body) => {
         const data = queryString.parse(body);
-        req.session.access_token = data.access_token;
-        if (data.access_token) res.redirect("/user/success");
+        const sessionObj = req.session;
+        session.access_token = data.access_token;
+        res.redirect(`http://localhost:${config.CLIENT_PORT}`);
       }
     );
   }
 });
 
 router.get("/success", function (req, res) {
-  if (req.session.access_token) {
+  const access_token = session.access_token;
+
+  if (access_token) {
     request(
       {
         method: "get",
         uri: `https://api.github.com/user`,
         headers: {
-          Authorization: "token " + req.session.access_token,
+          Authorization: "token " + access_token,
           "user-agent": "node.js",
         },
       },
       (error, response, body) => {
         const userData = JSON.parse(body);
-        res.render("success", { userData });
+        return res.status(200).json({ userData, access_token });
       }
     );
   }
