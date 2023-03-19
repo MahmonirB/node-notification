@@ -18,5 +18,8 @@
   "main": "index.js",
   "repository": "https://github.com/MahmonirB/node-notification.git",
   "author": "Mahmonir Bakhtiyari <37932243+MahmonirB@users.noreply.github.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.21"
+  }
 }
